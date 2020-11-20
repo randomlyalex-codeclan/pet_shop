@@ -26,3 +26,22 @@ def get_pets_by_breed(pet_shop, breed_type):
             found_pets_by_breed.append(pet)
     return found_pets_by_breed
 
+def find_pet_by_name(pet_shop, pet_name):
+    pets = pet_shop["pets"]
+    for pet in pets:
+        if pet["name"] == pet_name:
+            return pet
+
+def remove_pet_by_name(pet_shop, pet_name):
+    pets = pet_shop["pets"]
+    for pet in pets:
+        if pet["name"] == pet_name:
+            pets.remove(pet)
+
+def add_pet_to_stock(pet_shop, new_pet):
+    pets = pet_shop["pets"]
+    pets.append(new_pet)
+
+def get_customer_cash(customer):
+    pass
+    
