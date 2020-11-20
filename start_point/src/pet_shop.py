@@ -62,15 +62,7 @@ def customer_can_afford_pet(customer, pet):
     else:
         return False
 
-def sell_pet_to_customer(pet_shop, pet, customer):
-            #IF pet exists && customer can afford pet THEN 
-            #remove customer cash
-            #add cash to pet_shop
-            #incremnt pet_sold counter
-            #remove pet for sale
-            #add pet to customer
-            #
-            
+def sell_pet_to_customer(pet_shop, pet, customer):          
             if pet != None:
                 pet_name = pet["name"]
                 if customer_can_afford_pet(customer, pet):
