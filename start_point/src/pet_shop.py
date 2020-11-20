@@ -28,14 +28,16 @@ def get_pets_by_breed(pet_shop, breed_type):
 
 def find_pet_by_name(pet_shop, pet_name):
     pets = pet_shop["pets"]
+    #no_pet =   {}
     for pet in pets:
         if pet["name"] == pet_name:
             return pet
+    return None
 
 def remove_pet_by_name(pet_shop, pet_name):
-    pets = pet_shop["pets"]
-    for pet in pets:
-        if pet["name"] == pet_name:
+     pets = pet_shop["pets"]
+     for pet in pets:
+         if pet["name"] == pet_name:
             pets.remove(pet)
 
 def add_pet_to_stock(pet_shop, new_pet):
@@ -53,3 +55,29 @@ def get_customer_pet_count(customer):
 
 def add_pet_to_customer(customer, pet):
     customer["pets"].append(pet)
+
+def customer_can_afford_pet(customer, pet):
+    if customer["cash"] >= pet["price"]:
+        return True
+    else:
+        return False
+
+def sell_pet_to_customer(pet_shop, pet, customer):
+            #IF pet exists && customer can afford pet THEN 
+            #remove customer cash
+            #add cash to pet_shop
+            #incremnt pet_sold counter
+            #remove pet for sale
+            #add pet to customer
+            #
+            
+            if pet != None:
+                pet_name = pet["name"]
+                if customer_can_afford_pet(customer, pet):
+                    pet_price = pet["price"]
+                    remove_customer_cash(customer, pet_price)
+                    add_or_remove_cash(pet_shop, pet_price)
+                    increase_pets_sold(pet_shop, 1)
+                    remove_pet_by_name(pet_shop, pet_name)
+                    add_pet_to_customer(customer, pet)
+
